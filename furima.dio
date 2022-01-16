@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="7LwYVadwsinU0vQxL7fe" name="ページ1">
-        <mxGraphModel dx="474" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="436" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -26,7 +26,7 @@
                 <mxCell id="78" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="77">
                     <mxGeometry y="30" width="130" height="140" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" value="user_id&lt;br&gt;name&lt;br&gt;description&lt;br&gt;category&lt;br&gt;item_status&lt;br&gt;shipping_cost&lt;br&gt;prefecture&lt;br&gt;shipping_date&lt;br&gt;price" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="78">
+                <mxCell id="79" value="user_id&lt;br&gt;name&lt;br&gt;description&lt;br&gt;category_id&lt;br&gt;item_status_id&lt;br&gt;shipping_cost_id&lt;br&gt;prefecture_id&lt;br&gt;shipping_date_id&lt;br&gt;price" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;verticalAlign=top;" vertex="1" parent="78">
                     <mxGeometry width="130" height="140" as="geometry">
                         <mxRectangle width="130" height="140" as="alternateBounds"/>
                     </mxGeometry>
