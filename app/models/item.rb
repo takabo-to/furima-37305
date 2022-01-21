@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
- extend ActiveHash::Association::ActiveRecordExtensions
+ extend ActiveHash::Associations::ActiveRecordExtensions
 
  belongs_to :user
  has_one_attached :image
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
  belongs_to :prefecture_id
  belongs_to :shipping_date_id
 
- with_options presence: ture do
+ with_options presence: true do
   validates :user_id
   validates :name
   validates :description
