@@ -4,14 +4,15 @@ class Item < ApplicationRecord
  belongs_to :user
  has_one_attached :image
 
- belongs_to :category_id
- belongs_to :item_status_id
- belongs_to :shipping_cost_id
- belongs_to :prefecture_id
- belongs_to :shipping_date_id
+ belongs_to :category
+ belongs_to :item_status
+ belongs_to :shipping_cost
+ belongs_to :prefecture
+ belongs_to :shipping_date
 
  with_options presence: true do
   validates :user_id
+  validates :image
   validates :name
   validates :description
   validates :category_id
@@ -19,7 +20,7 @@ class Item < ApplicationRecord
   validates :shipping_cost_id
   validates :prefecture_id
   validates :shipping_date_id
-  validates :price, numericality: { greater_than_or_equal_to: 300 }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
  end
   
 
