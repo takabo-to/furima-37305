@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
       expect(@item).to be_valid
      end
      it 'カテゴリーが「---」以外であれば登録できる' do
-      @item.category_id
+      @item.category_id = 1
       expect(@item).to be_valid
      end
      it '商品の状態が「---」以外であれば登録ができる' do
@@ -41,7 +41,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザー登録していないと出品できない' do
         @item.user_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include('User must exist', "User can't be blank")
+        expect(@item.errors.full_messages).to include('User must exist')
       end
       it '画像をつけないと出品できない' do
         @item.image = nil
@@ -89,10 +89,20 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number')
       end
-      it '価格の範囲が、300円〜9,999,999円以外だと出品できない' do
+      it '価格の範囲が、300円未満だと出品できない' do
         @item.price = 10
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
+      end
+      it '価格の範囲が、9,999,999円を超えると出品できない' do
+        @item.price = 10_000_000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
+      end
+      it '価格に半角数字以外が含まれている場合は出品できない' do
+        @item.price = '３００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
 
