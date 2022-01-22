@@ -27,7 +27,7 @@ RSpec.describe Item, type: :model do
       expect(@item).to be_valid
      end
      it '発送までの日数が「---」以外であれば登録ができる' do
-      @item/shipping_date_id = 1
+      @item.shipping_date_id = 1
       expect(@item).to be_valid
      end
      it '価格が半角数字かつ300円〜9,999,999円であれば登録できる' do
@@ -90,7 +90,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number')
       end
       it '価格の範囲が、300円〜9,999,999円以外だと出品できない' do
-        @item.price = 100
+        @item.price = 10
         @item.valid?
         expect(@item.errors.full_messages).to include('Price must be greater than or equal to 300')
       end
