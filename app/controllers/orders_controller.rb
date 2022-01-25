@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @order_form = OrderForm.new
-    @item = Item.find(params[item_id])
+    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -20,6 +20,6 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-     params.require(:order_form).permit(:postcode, :prefecture_id, :city. :block, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+      params.permit(:postcode, :prefecture_id, :city, :block, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
     end
 end
