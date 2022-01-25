@@ -10,7 +10,6 @@ class OrderForm
     validates :city
     validates :block
     validates :phone_number, format: { with: /\A[0-9]+{11}\z/, message:'is invalid' }
-    validates :token
   end
 
   def save
