@@ -34,6 +34,14 @@ RSpec.describe OrderForm, type: :model do
         @order_form.phone_number = 12_345_678_910
         expect(@order_form).to be_valid
       end
+      it 'user_idが空でなければ保存できる' do
+        @order_form.user_id = 1
+        expect(@order_form).to be_valid
+      end
+      it 'item_idが空でなければ保存できる' do
+        @order_form.item_id = 1
+        expect(@order_form).to be_valid
+      end
     end
 
     context '配送先情報が保存できない時' do
@@ -82,12 +90,28 @@ RSpec.describe OrderForm, type: :model do
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
+      it "電話番号が9桁以下では購入できない" do
+        @order_form.phone_number = 12_345_6789
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
+      end
 
       it 'トークンが空だと保存できない' do
         @order_form.token = nil
         @order_form.valid?
         expect(@order_form.errors.full_messages).to include("Token can't be blank")
       end
+      it 'userが紐付いていなければ購入できない' do
+        @order_form.user_id = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐付いていなければ購入できない' do
+        @order_form.item_id = nil
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Item can't be blank")
+      end
+      
     end
   end
 end
